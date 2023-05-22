@@ -8,7 +8,7 @@ interface UsernameReponse {
 interface SignUpCredentials {
   username: string;
   password: string;
-  passwordConfirm: string;
+  passwordConfirmation: string;
 }
 
 interface SignUpResponse {
@@ -31,7 +31,7 @@ export class AuthService {
 
   signup(credentials: SignUpCredentials) {
     return this.http
-      .post<SignUpResponse>(`${this.rootUrl}/auth/signuup`, credentials)
+      .post<SignUpResponse>(`${this.rootUrl}/auth/signup`, credentials)
       .pipe(
         tap(() => {
           this.signedin$.next(true);
